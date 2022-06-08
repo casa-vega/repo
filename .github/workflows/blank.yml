@@ -1,12 +1,5 @@
-name: Create Repo
-on: 
-  workflow_dispatch:
-    inputs:
-      repo-name: 
-        description: 'Name of the repository to be created'
-        required: true
-        default: ''
-
+name: Issue Comments
+on: issue_comment
 jobs:
   check_comments:
     name: Check comments for /test
