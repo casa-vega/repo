@@ -11,7 +11,7 @@ jobs:
         uses: xt0rted/slash-command-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          command: create-repo
+          command: create
           reaction: "true"
           reaction-type: "eyes"
           allow-edits: "false"
