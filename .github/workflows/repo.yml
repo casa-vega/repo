@@ -29,7 +29,7 @@ jobs:
         id: create-repo
         with:
           repo-name: ${{ steps.command.outputs.command-arguments }}
-          org-admin-token: '${{ secrets.GITHUB_TOKEN }}'
+          org-admin-token: '${{ secrets.ORGREPO }}'
       - name: Log URL to the repo
         run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
   
