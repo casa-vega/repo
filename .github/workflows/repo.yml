@@ -12,12 +12,26 @@ jobs:
         uses: xt0rted/slash-command-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          command: test
+          command: create-repo
           reaction: "true"
           reaction-type: "eyes"
           allow-edits: "false"
           permission-level: read
       - name: Act on the command
         run: echo "The command was '${{ steps.command.outputs.command-name }}' with arguments '${{ steps.command.outputs.command-arguments }}'"
+  create-repository:
+    runs-on: ubuntu-latest
+    name: Creating Organization Repository
+    steps:
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+      - name: Creating GitHub Organization Repository
+        uses: repo-ctrl/create-repo-action@main 
+        id: create-repo
+        with:
+          repo-name: ${{ steps.command.outputs.command-arguments }}
+          org-admin-token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: Log URL to the repo
+        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
   
   
