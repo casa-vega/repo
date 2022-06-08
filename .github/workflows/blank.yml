@@ -1,5 +1,7 @@
 name: Issue Comments
-on: issue_comment
+on:
+  issues:
+    types: [opened]
 jobs:
   check_comments:
     name: Check comments for /test
